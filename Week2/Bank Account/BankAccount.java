@@ -13,20 +13,45 @@ public class BankAccount {
         this.savingsBalance = 0;
     }
 
-    public double ShowSavings() {
-        return this.savingsBalance;
+    public void printTotal() {
+        double total = checkingBalance + savingsBalance;
+        System.out.println(total);
     }
 
-    public double ShowChecking() {
-        return this.checkingBalance;
+    public void ShowSavings() {
+        System.out.println(this.savingsBalance);
     }
 
-    public void Deposit(){
-        
+    public void ShowChecking() {
+        System.out.print(this.checkingBalance);
     }
 
-    public void Withdraw() {
-        
+    public void Deposit(double amount, String accType){
+        if (accType.equals("checking")) {
+            checkingBalance += amount;
+            System.out.println(checkingBalance);
+        }
+        else if(accType.equals("savings")) {
+            savingsBalance += amount;
+            System.out.println(savingsBalance);
+        }
+        else {
+            System.out.println("Invalid Account Type");
+        }
+    }
+
+    public void Withdraw(double amount, String accType) {
+        if (accType.equals("checking") && checkingBalance > amount) {
+            checkingBalance -= amount;
+            System.out.println(checkingBalance);
+        }
+        else if(accType.equals("savings") && savingsBalance > amount) {
+            savingsBalance -= amount;
+            System.out.println(savingsBalance);
+        }
+        else {
+            System.out.println("Invalid Account Type or Insufficient Funds");
+        }
     }
 
 
