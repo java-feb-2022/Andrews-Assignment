@@ -7,7 +7,7 @@ public class Bat extends Mammals {
 
     public void fly() {
         energy -= 50;
-        System.out.println("A shadow lifts into the air and dissapears into the night.");
+        System.out.println("A shadow lifts into the air and disappears into the night.");
     }
 
     public void eatHumans() {
