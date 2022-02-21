@@ -16,5 +16,16 @@ public class GorillaTest {
         g1.displayEnergy();
 
         System.out.println("---------Zoo Keeper Part 2---------");
+        Bat dracula = new Bat();
+        dracula.displayEnergy();
+        dracula.attackTown();
+        dracula.attackTown();
+        dracula.attackTown();
+        dracula.displayEnergy();
+        dracula.eatHumans();
+        dracula.eatHumans();
+        dracula.displayEnergy();
+        dracula.fly();
+        dracula.displayEnergy();
     }
 }
