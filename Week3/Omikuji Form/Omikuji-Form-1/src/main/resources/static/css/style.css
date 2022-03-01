@@ -1,0 +1,12 @@
+body {
+	padding: 5% 30%;
+}
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+}
+
+.in {
+	width: 70px;
+}
