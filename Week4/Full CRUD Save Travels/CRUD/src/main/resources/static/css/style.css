@@ -1,0 +1,11 @@
+@charset "ISO-8859-1";
+
+body {
+	margin: 5% 30%;
+	background-color: #004a3f;
+	color: #00ffff66;
+}
+
+view {
+	display: flex;
+}

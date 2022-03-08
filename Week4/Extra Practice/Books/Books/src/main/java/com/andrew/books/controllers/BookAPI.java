@@ -1,10 +1,10 @@
 package com.andrew.books.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,8 +18,9 @@ public class BookAPI {
 	private BookService bookService;
 	
 	@GetMapping("/api/books")
-	public List<Book> index() {
-		return bookService.allBooks();
+	public String index(Model model, @ModelAttribute Book newBook) {
+		model.addAttribute("books", bookService.allBooks());
+		return "index.jsp";
 	}
 	
 	@PostMapping("/api/books")
