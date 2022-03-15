@@ -3,7 +3,6 @@ package com.andrew.ninjandojos.models;
 import java.sql.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,7 +32,7 @@ public class Dojo {
 	@DateTimeFormat(pattern = "yyy-MM-dd")
 	private Date updatedAt;
 	
-	@OneToMany(mappedBy="dojo", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="dojo", fetch = FetchType.LAZY)
     private List<Ninja> ninjas;
 
 	public Long getId() {

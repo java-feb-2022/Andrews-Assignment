@@ -7,13 +7,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+<title>New Ninja</title>
 </head>
 <body>
-	<div class="view">
+	<div>
 		<h2>New Ninja</h2>
 		
-		<div>
+		<div class="view">
 			<form:form action="/ninja/submit" method="post" modelAttribute="ninja">
 				<div>
 					<form:label path="firstName">First Name:</form:label><br>

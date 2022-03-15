@@ -6,10 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+<title>Show Dojo</title>
 </head>
 <body>
-	<h1>${dojo.name} Roster</h1>
+	<h1>${dojo.name} Student List</h1>
 	<div>
 	<hr>
 	 <ul>

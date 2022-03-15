@@ -19,15 +19,16 @@ import com.andrew.ninjandojos.services.NinjaService;
 
 @Controller
 public class Renders {
-
+	
 	@Autowired
-	private DojoService dojoService;
+	private DojoService service;
+	
 	@Autowired
 	private NinjaService ninjaService;
 	
 	@GetMapping("/")
 	public String index(Model model) {
-		model.addAttribute("dojo", dojoService.all());
+		model.addAttribute("dojo", service.all());
 	return "index.jsp";
 	}
 	
@@ -41,20 +42,20 @@ public class Renders {
 		if (result.hasErrors()) {
 			return "NewDojo.jsp";
 		}
-		dojoService.create(dojo);
+		service.create(dojo);
 		return "redirect:/";
 	}
 	
 	
 	@GetMapping("/dojo/{id}")
 	public String viewDojo(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("dojo", dojoService.findOne(id));
+		model.addAttribute("dojo", service.findOne(id));
 		return "Dojo.jsp";
 	}
 	
 	@GetMapping("/ninja")
 	public String ninja(@ModelAttribute("ninja") Ninja ninja, Model model) {
-		model.addAttribute("dojo", dojoService.all());
+		model.addAttribute("dojo", service.all());
 		return "Ninja.jsp";
 	}
 	
