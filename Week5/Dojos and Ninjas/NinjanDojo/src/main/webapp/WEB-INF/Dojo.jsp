@@ -20,5 +20,6 @@
 		</c:forEach>
 	</ul> 
 	</div>
+	<p><a href="/">Dojos</a> <a href="/dojo">Dojos</a></p>
 </body>
 </html>
