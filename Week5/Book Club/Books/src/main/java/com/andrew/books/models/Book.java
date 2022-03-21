@@ -4,12 +4,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -25,20 +22,22 @@ public class Book {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id;
 		
-		@NotEmpty(message="Username is required!")
-	    @Size(min=3, message="Username must be longer than 3 characters")
-		private String name;
+		//Name
+		@NotEmpty(message="Title is required!")
+	    @Size(min=3, message="Title must be longer than 3 characters")
+		private String title;
 		
+		//Thoughts
+		@NotEmpty(message="Thought is required!")
+	    @Size(min=3, message="Username must be longer than 3 characters")
 		private String thoughts;
 		
-		@ManyToOne(fetch = FetchType.LAZY)
-	    @JoinColumn(name="user_id")
-	    private User user;
-		
-		@Column(updatable=false, name="created_at")
+	
+		//DateTime
+		@Column(updatable=false)
 	    @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
 	    private Date createdAt;
-	    @Column(name="updated_at")
+		
 	    @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
 	    private Date updatedAt;	
 	    
@@ -50,6 +49,8 @@ public class Book {
 	    protected void onUpdate(){
 	        this.updatedAt = new Date();
 	    }
+	    
+	    //Getters and Setters
 		public Long getId() {
 			return id;
 		}
@@ -57,22 +58,16 @@ public class Book {
 			this.id = id;
 		}
 		public String getName() {
-			return name;
+			return title;
 		}
 		public void setName(String name) {
-			this.name = name;
+			this.title = name;
 		}
 		public String getThoughts() {
 			return thoughts;
 		}
 		public void setThoughts(String thoughts) {
 			this.thoughts = thoughts;
-		}
-		public User getUser() {
-			return user;
-		}
-		public void setUser(User user) {
-			this.user = user;
 		}
 		public Date getCreatedAt() {
 			return createdAt;

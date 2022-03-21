@@ -9,6 +9,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
     
 @Entity
 @Table(name="users")
@@ -19,10 +20,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    //Username
-    @NotEmpty(message="Username is required!")
-    @Size(min=3, max=30, message="Username must be between 3 and 30 characters")
-    private String userName;
+    //Name
+    @NotEmpty(message="Name is required!")
+    @Size(min=3, max=30, message="Name must be between 3 and 30 characters")
+    private String name;
     
     //Email
     @NotEmpty(message="Email is required!")
@@ -39,11 +40,10 @@ public class User {
     @NotEmpty(message="Confirm Password is required!")
     @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
     private String confirm;
-  
-    public User() {}
 
-    // getters and Setters
     
+    
+    //Getters and Setters
 	public Long getId() {
 		return id;
 	}
@@ -52,12 +52,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getName() {
+		return name;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
