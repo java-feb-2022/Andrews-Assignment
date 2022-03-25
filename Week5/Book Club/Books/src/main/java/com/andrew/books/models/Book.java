@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -22,14 +25,19 @@ public class Book {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id;
 		
-		//Name
+		//Title
 		@NotEmpty(message="Title is required!")
 	    @Size(min=3, message="Title must be longer than 3 characters")
 		private String title;
 		
+		//Author
+		@NotEmpty(message="Author is required!")
+		@Size(min=3, message="Author name must be longer than 3 characters")
+		private String author;
+
 		//Thoughts
 		@NotEmpty(message="Thought is required!")
-	    @Size(min=3, message="Username must be longer than 3 characters")
+	    @Size(min=3, message="Thoughts must be longer than 3 characters")
 		private String thoughts;
 		
 	
@@ -50,6 +58,11 @@ public class Book {
 	        this.updatedAt = new Date();
 	    }
 	    
+	    //User
+	    @ManyToOne(fetch = FetchType.LAZY)
+	    @JoinColumn(name="user_id")
+	    private User users;
+
 	    //Getters and Setters
 		public Long getId() {
 			return id;
@@ -57,11 +70,17 @@ public class Book {
 		public void setId(Long id) {
 			this.id = id;
 		}
-		public String getName() {
+		public String getTitle() {
 			return title;
 		}
-		public void setName(String name) {
-			this.title = name;
+		public void setTitle(String title) {
+			this.title = title;
+		}
+		public String getAuthor() {
+			return author;
+		}
+		public void setAuthor(String author) {
+			this.author = author;
 		}
 		public String getThoughts() {
 			return thoughts;
@@ -81,4 +100,11 @@ public class Book {
 		public void setUpdatedAt(Date updatedAt) {
 			this.updatedAt = updatedAt;
 		}
+		public User getUsers() {
+			return users;
+		}
+		public void setUsers(User users) {
+			this.users = users;
+		}
+
 }
